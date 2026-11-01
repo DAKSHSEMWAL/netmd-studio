@@ -1,0 +1,6 @@
+{
+  "musicRoot": "C:/Music",
+  "ffmpegPath": "C:/Tools/ffmpeg/bin/ffmpeg.exe",
+  "ffprobePath": "C:/Tools/ffmpeg/bin/ffprobe.exe",
+  "atracdencPath": "C:/Tools/atracdenc/atracdenc.exe"
+}

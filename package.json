@@ -1,0 +1,13 @@
+{
+  "name": "netmd-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local NetMD recording, playback control, session recovery and encoding cache",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-queue-sync.js && node test-erase.js && node test-recovery.js && node test-diff-cache.js && node test.js"
+  },
+  "dependencies": { "netmd-js": "4.4.1", "usb": "^2.4.2" }
+}

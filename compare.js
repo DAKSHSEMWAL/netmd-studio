@@ -1,0 +1,4 @@
+// Metadata comparison only: no audio fingerprint is available from the disc.
+function key(title){return String(title||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/^\s*\d{1,3}[\s._-]+/,'').split(/\s+[-—–]\s+/).map(s=>s.replace(/['’‘]/g,'').replace(/[^a-z0-9]+/g,' ').trim()).sort().join('|');}
+function diff(queue,disc){const existing=disc.groups.flatMap(g=>g.tracks),seen=new Set();return queue.map(t=>{const k=key(t.title),matches=existing.filter(d=>key(d.title)===k);let status='missing';if(seen.has(k))status='queue-duplicate';else if(matches.some(d=>Math.abs(d.duration/512-t.duration)<=2))status='present';else if(matches.length)status='review';seen.add(k);return {...t,status,discTracks:matches.map(d=>({index:d.index,title:d.title,duration:d.duration/512}))}});}
+module.exports={key,diff};
